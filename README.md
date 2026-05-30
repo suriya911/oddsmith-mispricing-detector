@@ -1,11 +1,11 @@
-# VerbaTrust — Management Credibility Engine
+# Oddsmith — Management Credibility Engine
 
 > *"Management always sounds confident. Our engine reads what they stopped saying."*
 
 [![CI](https://github.com/suriya911/oddsmith-mispricing-detector/actions/workflows/ci.yml/badge.svg)](https://github.com/suriya911/oddsmith-mispricing-detector/actions/workflows/ci.yml)
 [![Deploy](https://github.com/suriya911/oddsmith-mispricing-detector/actions/workflows/deploy.yml/badge.svg)](https://github.com/suriya911/oddsmith-mispricing-detector/actions/workflows/deploy.yml)
 
-VerbaTrust scores management credibility by diffing earnings-call language against prior quarters (stored in a **Cognee** knowledge graph) and cross-checking the optimistic narrative against live web signals scraped in real time via **Bright Data**. Language scoring runs through **AI/ML API**; bulk transcript summarization uses **Featherless AI**.
+Oddsmith scores management credibility by diffing earnings-call language against prior quarters (stored in a **Cognee** knowledge graph) and cross-checking the optimistic narrative against live web signals scraped in real time via **Bright Data**. Language scoring runs through **AI/ML API**; bulk transcript summarization uses **Featherless AI**.
 
 **Output:** A Credibility Score (0–100) with every deducted point linked to an evidence quote and a source URL.
 

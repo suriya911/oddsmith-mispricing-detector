@@ -1,4 +1,4 @@
-# How to get API keys for VerbaTrust
+# How to get API keys for Oddsmith
 
 Add these to `backend/.env` (copy from `backend/.env.example`).
 

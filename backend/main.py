@@ -1,5 +1,5 @@
 """
-VerbaTrust FastAPI application.
+Oddsmith FastAPI application.
 
 Endpoints:
   POST /analyze           → CredibilityReport  (trigger analysis)
@@ -34,7 +34,7 @@ import memory
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="VerbaTrust", version="1.0.0")
+app = FastAPI(title="Oddsmith", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,

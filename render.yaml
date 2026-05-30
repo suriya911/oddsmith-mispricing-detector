@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: verbatrust-backend
+    name: oddsmith-backend
     env: python
     region: oregon
     plan: free

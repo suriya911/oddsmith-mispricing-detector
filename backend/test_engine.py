@@ -1,5 +1,5 @@
 """
-Unit tests for the VerbaTrust scoring engine.
+Unit tests for the Oddsmith scoring engine.
 Run: pytest test_engine.py -v
 All tests run fully offline — no API keys required.
 """

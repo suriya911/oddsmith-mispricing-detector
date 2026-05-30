@@ -1,5 +1,5 @@
 """
-VerbaTrust analysis loop.
+Oddsmith analysis loop.
 
 analyze(company, mode) → CredibilityReport
 
