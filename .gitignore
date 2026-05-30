@@ -1,0 +1,47 @@
+# Root-level input files (kept local, not committed)
+/GROUND_TRUTH_annotations.txt
+/NMBS_Q1_2026_transcript.txt
+/NMBS_Q2_2026_transcript.txt
+/VerbaTrust_Finance_Architecture.pdf
+/claude_instructions.md
+/live_signals.csv
+
+# Secrets
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+cognee_data/
+cognee_db/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/node_modules/
+frontend/out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

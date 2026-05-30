@@ -1,0 +1,7 @@
+date,source_type,headline,detail,contradicts_claim,source_url_placeholder
+2026-04-22,news,"Nimbus Logistics cuts 8% of workforce","Internal memo cites cost discipline; ~400 roles affected","'investing thoughtfully' / 'resilient franchise'",https://example-news.com/nmbs-layoffs
+2026-04-30,jobs,"Nimbus job postings down 61% QoQ","Engineering and operations reqs pulled across LinkedIn","'strategic priority' automation investment",https://example-jobs.com/nmbs-postings
+2026-05-02,filing,"Contractor terminates West Coast hub buildout contract","8-K references mutual termination of facilities agreement","'on track' West Coast hub (from Q1)",https://example-sec.com/nmbs-8k
+2026-05-06,reviews,"Glassdoor rating falls 4.1 -> 3.4 in 60 days","Reviews cite layoffs, frozen projects, leadership churn","'resilient, high-quality franchise'",https://example-reviews.com/nmbs
+2026-05-09,news,"Analyst downgrades NMBS to Hold, cuts target","Cites guidance cut and 'execution credibility concerns'","'confident in the long-term opportunity'",https://example-news.com/nmbs-downgrade
+2026-05-12,news,"Two VPs depart Nimbus ahead of earnings","Head of Ops and VP Automation exits confirmed on LinkedIn","unspoken; leadership stability",https://example-news.com/nmbs-departures

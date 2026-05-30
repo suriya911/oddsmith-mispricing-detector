@@ -1,0 +1,62 @@
+VERBATRUST — GROUND TRUTH ANNOTATIONS (NMBS Q1 -> Q2 2026)
+This file lists exactly what the engine should surface. Use it to (a) verify your
+extraction is working, and (b) drive the demo narration. NOTHING here is shown to
+the model as input — it is your answer key.
+
+============================================================
+1. BROKEN / VANISHED PROMISES  (the most dramatic demo beat)
+============================================================
+PROMISE A — "Adjusted EBITDA profitability by Q4 2026"
+  Q1: stated as "a firm target ... clear path to it" (CEO + CFO reaffirmed)
+  Q2: NOT reaffirmed. When directly asked, CEO pivots to "prioritize sustainable
+      growth rather than anchoring to a specific near-term timeframe."
+  VERDICT: Commitment quietly withdrawn. Credibility hit.
+
+PROMISE B — "West Coast automation hub fully operational by end of Q3"
+  Q1: "on track ... operational by end of Q3 as planned"
+  Q2: "continuing to evaluate the optimal phasing" / "share more as plans firm up"
+  VERDICT: Timeline abandoned without admitting a delay. Hedged deferral.
+
+============================================================
+2. DROPPED METRICS  (narrative drift)
+============================================================
+METRIC A — Enterprise customer count
+  Q1: disclosed precisely ("reached 1,240, up 18%")
+  Q2: refused when asked ("focused on quality ... rather than headline counts")
+METRIC B — Net revenue retention
+  Q1: disclosed ("118%")
+  Q2: not disclosed; deflected.
+  VERDICT: Two previously-highlighted KPIs went dark in the same quarter they
+  likely weakened. Classic drift signal.
+
+============================================================
+3. HEDGING / UNCERTAINTY LANGUAGE  (tone shift, quantifiable)
+============================================================
+  Q1 tone: direct, confident. Hedge density LOW.
+    markers: "I want to be direct", "firm target", "very confident", "clear path"
+  Q2 tone: hedged, abstract. Hedge density HIGH.
+    markers: "we believe", "challenging and dynamic environment", "we think it is
+    prudent", "levers within our control", "thoughtfully", "over time",
+    "measured view", "evaluate", "as plans firm up"
+  VERDICT: Sharp rise in hedging-word density quarter-over-quarter is itself a
+  leading risk signal, independent of the numbers.
+
+============================================================
+4. SPIN-VS-REALITY GAP  (cross-check vs live web signals)
+============================================================
+  Q2 spin: "investing thoughtfully", "resilient franchise", "fundamentals remain
+  solid".
+  Contradicting live web signals (see live_signals.csv): layoffs reported, hub
+  contractor contract cancelled, Glassdoor sentiment drop, a downgrade.
+  VERDICT: Optimistic narrative contradicted by external reality = lowest-trust
+  state. This is where Bright Data earns its place: the contradicting evidence
+  lives on bot-walled news/jobs sites.
+
+============================================================
+SUGGESTED CREDIBILITY SCORE
+============================================================
+  Q1 credibility: ~82/100 (confident, specific, falsifiable commitments)
+  Q2 credibility: ~46/100 (promises withdrawn, metrics dropped, hedging spiked,
+  contradicted by external signals)
+  HEADLINE: "Management credibility fell 36 points QoQ. Two commitments withdrawn,
+  two KPIs dropped, hedging language up sharply, narrative contradicted by layoffs."
