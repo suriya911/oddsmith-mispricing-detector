@@ -1,0 +1,83 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  # Only deploy when CI passes
+  check-ci:
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    outputs:
+      should_deploy: ${{ steps.check.outputs.result }}
+    steps:
+      - id: check
+        run: echo "result=true" >> $GITHUB_OUTPUT
+
+  # ── Backend → Render ───────────────────────────────────────────────────────
+  deploy-backend:
+    name: Deploy backend → Render
+    runs-on: ubuntu-latest
+    needs: check-ci
+    if: needs.check-ci.outputs.should_deploy == 'true'
+
+    steps:
+      - name: Trigger Render deploy hook
+        # Add RENDER_DEPLOY_HOOK_URL as a repo secret:
+        # Render dashboard → your service → Settings → Deploy hooks → Create hook
+        run: |
+          if [ -n "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
+            curl -s "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" \
+              -X POST -d '' \
+              -o /dev/null -w "Render deploy triggered: HTTP %{http_code}\n"
+          else
+            echo "RENDER_DEPLOY_HOOK_URL secret not set — skipping Render deploy"
+          fi
+
+  # ── Frontend → Vercel ──────────────────────────────────────────────────────
+  deploy-frontend:
+    name: Deploy frontend → Vercel
+    runs-on: ubuntu-latest
+    needs: check-ci
+    if: needs.check-ci.outputs.should_deploy == 'true'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy to Vercel
+        # Add these as repo secrets:
+        #   VERCEL_TOKEN       → vercel.com/account/tokens
+        #   VERCEL_ORG_ID      → vercel.com/account → Settings → General → Team ID (or skip for personal)
+        #   VERCEL_PROJECT_ID  → your project → Settings → General → Project ID
+        run: |
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
+            cd frontend
+            vercel pull --yes --environment=production \
+              --token=${{ secrets.VERCEL_TOKEN }}
+            vercel build --prod \
+              --token=${{ secrets.VERCEL_TOKEN }}
+            vercel deploy --prebuilt --prod \
+              --token=${{ secrets.VERCEL_TOKEN }}
+          else
+            echo "VERCEL_TOKEN secret not set — skipping Vercel deploy"
+            echo "Vercel also auto-deploys when you link the repo at vercel.com"
+          fi
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
